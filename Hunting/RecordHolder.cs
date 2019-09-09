@@ -20,8 +20,11 @@ namespace Hunting
 
         #region Конструкторы
 
+        public RecordHolder()
+        { }
+
         // конструктор
-        public RecordHolder(string name, int score) : base(name)
+        public RecordHolder(string name, int score) 
         {
             Score = score;
             recordDate = DateTime.Now;

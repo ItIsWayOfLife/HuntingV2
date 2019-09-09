@@ -18,3 +18,4 @@ D:\DELETE\Hunting\Hunting\obj\Debug\Hunting.csproj.GenerateResource.cache
 D:\DELETE\Hunting\Hunting\obj\Debug\Hunting.csproj.CoreCompileInputs.cache
 D:\DELETE\Hunting\Hunting\obj\Debug\Hunting.exe
 D:\DELETE\Hunting\Hunting\obj\Debug\Hunting.pdb
+D:\DELETE\Hunting\Hunting\obj\Debug\Hunting.PlayerForm.resources

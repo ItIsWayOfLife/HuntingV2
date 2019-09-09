@@ -37,11 +37,10 @@ namespace Hunting
             // time for count
             OneSeanTime = 1000;
 
-            // read name player
-            StreamReader streamReader = new StreamReader(@"NamePlayer.txt");
-            string namePlayer = streamReader.ReadLine();
 
-            player = new Player(namePlayer); // create player
+            player = new Player(); // create player
+
+            recordHolder = new RecordHolder(); // create bestplayer
 
             label5.Text = player.Name; // display name player in label
         }
@@ -108,15 +107,6 @@ namespace Hunting
                     Application.Exit();
                 }
             }
-
-
-
-
-
-
-
-
-
 
 
             // СОЗД ПТИЦ
@@ -237,6 +227,27 @@ namespace Hunting
         private void NewGameToolStripMenuItem_Click(object sender, EventArgs e)
         {
             NewGame();
+        }
+
+        private void NewGamerToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            PlayerForm formPlayer = new PlayerForm(); // откр форму где регестрируем игрока
+            formPlayer.Owner = this;
+            formPlayer.ShowDialog();
+
+            //StreamReader streamReader = new StreamReader(@"NamePlayer.txt"); // потоком читаем
+            //string s = streamReader.ReadLine();
+
+            player = new Player(); // создаем с таким именем
+
+            label5.Text = player.Name; // выводим в label
+            //streamReader.Close(); // закр поток
+            NewGame(); // вызываем метод "Новая игра"
+        }
+
+        private void ViewRecordToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            recordHolder.GetInfo();
         }
     }
 }

@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.IO;
 
 namespace Hunting
 {
@@ -11,21 +7,13 @@ namespace Hunting
         public string Name { get; set; }
         public int Score { get; set; }
 
-        public Player(string name)
+        public Player()
         {
-            Name = name;
             Score = 0;
-        }
 
-
-        public void ReadRecord()
-        {
-
-        }
-
-        public static string InfoBestPlayer()
-        {
-            return "";
+            StreamReader streamReader = new StreamReader(@"NamePlayer.txt");
+            Name = streamReader.ReadLine();
+            streamReader.Close();
         }
     }
 }

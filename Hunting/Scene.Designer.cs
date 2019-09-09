@@ -87,12 +87,14 @@
             this.newGamerToolStripMenuItem.Name = "newGamerToolStripMenuItem";
             this.newGamerToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.newGamerToolStripMenuItem.Text = "New player";
+            this.newGamerToolStripMenuItem.Click += new System.EventHandler(this.NewGamerToolStripMenuItem_Click);
             // 
             // viewRecordToolStripMenuItem
             // 
             this.viewRecordToolStripMenuItem.Name = "viewRecordToolStripMenuItem";
             this.viewRecordToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.viewRecordToolStripMenuItem.Text = "View record";
+            this.viewRecordToolStripMenuItem.Click += new System.EventHandler(this.ViewRecordToolStripMenuItem_Click);
             // 
             // exitToolStripMenuItem
             // 
