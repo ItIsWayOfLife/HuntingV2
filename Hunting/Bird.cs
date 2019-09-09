@@ -7,6 +7,9 @@ namespace Hunting
 {
     abstract class Bird
     {
+
+        
+
         public Bird(int id)
         {
             Life = true;

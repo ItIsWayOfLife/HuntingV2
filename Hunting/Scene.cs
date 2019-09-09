@@ -14,8 +14,38 @@ namespace Hunting
 {
     public partial class Scene : Form
     {
-
+        // игрок
         Player player;
+        // рекордсмен
+        RecordHolder recordHolder;
+        // coun time
+        int OneSeanTime;
+
+        // id for PictureBox bird
+        public static int idBird = 0;
+
+        // list bird 
+        List<Bird> birds = new List<Bird>();
+
+
+        //bool StartGame { get; set; }
+
+        private void NewGame()
+        {
+            //StartGame = true;
+
+            // time for count
+            OneSeanTime = 1000;
+
+            // read name player
+            StreamReader streamReader = new StreamReader(@"NamePlayer.txt");
+            string namePlayer = streamReader.ReadLine();
+
+            player = new Player(namePlayer); // create player
+
+            label5.Text = player.Name; // display name player in label
+        }
+
 
         public Scene()
         {
@@ -27,59 +57,103 @@ namespace Hunting
 
             Cursor = new Cursor(@"Curs.cur");    // устанавливаем курсор прицел
 
-            StreamReader streamReader = new StreamReader(@"NamePlayer.txt");
-            string namePlayer = streamReader.ReadLine();
-
-            player = new Player(namePlayer); // создаем объект игрок
-
-            label5.Text = player.Name; // выводис в label имя игрока
+            // start game
+            NewGame();
 
         }
 
-        // id for PictureBox bird
-        public static int idBird = 0;
-
-        // list bird 
-        List<Bird> birds = new List<Bird>();
-       
-
-        bool StartGame { get; set; }
-
-
         private void timer1_Tick(object sender, EventArgs e)
         {
-            if (birds.Count <= 12)
-            {
-                birds.Add(RandomBird());
-            }
+            OneSeanTime--; // уменьшаем переменну
+            label4.Text = Convert.ToString(OneSeanTime * 60 / 1000); // переводим время в секунды
+            label6.Text = player.Score.ToString();
 
+            // если время закончилось
+            if (OneSeanTime == 0) // если время = 0
+            {// Вызываем информационный блок
 
-           for (int i=birds.Count-1;i!=0;i--)
-            { 
-                if (birds[i] != null)
+                // считываем потоком рекорд
+                //
+                StreamReader streamReader = new StreamReader(@"Record.txt");
+                string rec = streamReader.ReadLine();
+                streamReader.Close();
+                //
+
+                // если игрок набрал больше баллов чем рекорд, он становится рекордсменом
+                if (player.Score > Convert.ToInt32(rec))
                 {
-                    birds[i].Move();
-                    Controls.Add(birds[i].PictureBox);
+                    recordHolder = new RecordHolder(player.Name, player.Score); // устанавл нов рекорд
+                }
 
+                // считываем потоком рекорд
+                //
+                streamReader = new StreamReader(@"Record.txt");
+                rec = streamReader.ReadLine();
+                streamReader.Close();
+                //
 
+                // выз информ блок
+                DialogResult result = MessageBox.Show($"{player.Name} вы набрали (балла): {player.Score} \nРекорд: {rec} \nНачать новую игру | Выход",
+                                "Игра завершена",
+                                 MessageBoxButtons.YesNo);
 
-                    if (birds[i].Life == false)
-                    {
-                        Controls.Remove(birds[i].PictureBox);
-                        birds.Remove(birds[i]);
-                    }
+                // при ответе да запускает новую игру
+                if (result == DialogResult.Yes)
+                {
+                    NewGame();
+                }
+                // при ответе нет выходит из игры
+                if (result == DialogResult.No)
+                {
+                    Application.Exit();
                 }
             }
 
 
-            //  SceneContainer options
-            if (SceneContainer.Height != this.Size.Height || SceneContainer.Width != this.Size.Width)
-            {
-                SceneContainer.Height = this.Size.Height;
-                SceneContainer.Width = this.Size.Width;
-            }
 
 
+
+
+
+
+
+
+
+            // СОЗД ПТИЦ
+            if (birds.Count <= 12)
+                {
+                    birds.Add(RandomBird());
+                }
+
+
+                for (int i = birds.Count - 1; i != 0; i--)
+                {
+                    if (birds[i] != null)
+                    {
+                        birds[i].Move();
+                        Controls.Add(birds[i].PictureBox);
+
+
+
+                        if (birds[i].Life == false)
+                        {
+                            Controls.Remove(birds[i].PictureBox);
+                            birds.Remove(birds[i]);
+                        }
+                    }
+                }
+
+
+                //  SceneContainer options
+                if (SceneContainer.Height != this.Size.Height || SceneContainer.Width != this.Size.Width)
+                {
+                    SceneContainer.Height = this.Size.Height;
+                    SceneContainer.Width = this.Size.Width;
+                }
+
+
+                
+            
         }
 
         // Create new bird
@@ -133,6 +207,11 @@ namespace Hunting
             // next new id for PictureBox bird
             idBird++;
 
+
+            birdsType[i].PictureBox.Click += new EventHandler((x,t)=> { player.Score += birdsType[i].Point; });
+
+               
+
             return birdsType[i];
         }
 
@@ -153,6 +232,11 @@ namespace Hunting
             MessageBox.Show("Управляя мышкой сбивайте птиц \nДля сбития используйте клавишу ЛКМ " +
                 "\nЗа 60 секунд необходимо набрать рекордное количество баллов \nБаллы начисляются за сбитие птиц" +
                 " \nБудьте внимательны, каждая птица имеет свои баллы \n(изучите какие птицы выгоднее сбивать)", "Справка");
+        }
+
+        private void NewGameToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            NewGame();
         }
     }
 }
