@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Drawing;
 using System.Media;
 using System.Windows.Forms;
 
@@ -7,9 +6,6 @@ namespace Hunting
 {
     abstract class Bird
     {
-
-        
-
         public Bird(int id)
         {
             Life = true;
@@ -20,8 +16,7 @@ namespace Hunting
             PictureBox.Anchor = AnchorStyles.Right;
             PictureBox.Anchor = AnchorStyles.Top;
 
-            PictureBox.Click += new EventHandler((x, t) => { Death(); });
-
+            PictureBox.Click += new EventHandler((x, t) => { DeathAndCry(); });
         }
 
         // motion variable
@@ -45,7 +40,19 @@ namespace Hunting
         }
 
         // death  bird
-        public abstract Bird Death();
+        public Bird Death()
+        {
+            Life = false;
+            return null;
+        }
+
+        public Bird DeathAndCry()
+        {
+            Life = false;
+            Cry();
+            return null;
+        }
+
 
         // move bird
         public abstract void Move();

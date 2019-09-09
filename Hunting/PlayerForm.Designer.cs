@@ -71,7 +71,9 @@
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label1);
             this.Name = "PlayerForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "PlayerForm";
+            this.Load += new System.EventHandler(this.PlayerForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

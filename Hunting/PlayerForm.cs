@@ -20,5 +20,10 @@ namespace Hunting
             File.WriteAllText(@"NamePlayer.txt", textBox1.Text);  // записила в файл нового игрока
             Close();
         }
+
+        private void PlayerForm_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

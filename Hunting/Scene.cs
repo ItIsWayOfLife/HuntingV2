@@ -141,7 +141,15 @@ namespace Hunting
                     SceneContainer.Width = this.Size.Width;
                 }
 
+            foreach (Bird b in birds)
+            {
+                if (b.X > this.Size.Width + 500 || b.X<-500)
+                {
+                    b.Death();
+                }
 
+
+            }
                 
             
         }
@@ -248,6 +256,11 @@ namespace Hunting
         private void ViewRecordToolStripMenuItem_Click(object sender, EventArgs e)
         {
             recordHolder.GetInfo();
+        }
+
+        private void ExitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }
