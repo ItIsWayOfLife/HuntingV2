@@ -7,13 +7,18 @@ namespace Hunting
 {
     class Parrot : Bird
     {
+        int dinamic;
+
         public Parrot(int id) : base(id)
         {
             Point = 50;
             Random random = new Random();
 
             Speed = random.Next(6,10);
-         
+
+            dinamic = random.Next(0,2);
+
+
             int[] widthStartPoints = new int[] { SceneContainer.Width + 150, SceneContainer.Width + 250, SceneContainer.Width + 400 };
                
             PictureBox.Location = new Point(widthStartPoints[random.Next(0,widthStartPoints.Length)], random.Next(200, 600));
@@ -25,11 +30,15 @@ namespace Hunting
         public override void Move()
         {
             X -= Speed;
-            MotionVariable++;
-
-            if (MotionVariable > 20)
+            
+            if (dinamic==0)
             {
                 Y++;
+            }
+
+            if (dinamic==1)
+            {
+                Y--;
             }
         }
 

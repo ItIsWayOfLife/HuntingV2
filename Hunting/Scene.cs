@@ -1,11 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
 using System.Media;
@@ -27,16 +22,10 @@ namespace Hunting
         // list bird 
         List<Bird> birds = new List<Bird>();
 
-
-        //bool StartGame { get; set; }
-
         private void NewGame()
         {
-            //StartGame = true;
-
             // time for count
             OneSeanTime = 1000;
-
 
             player = new Player(); // create player
 
@@ -44,7 +33,6 @@ namespace Hunting
 
             label5.Text = player.Name; // display name player in label
         }
-
 
         public Scene()
         {
@@ -55,10 +43,8 @@ namespace Hunting
             SceneContainer.Width = this.Size.Width;
 
             Cursor = new Cursor(@"Curs.cur");    // устанавливаем курсор прицел
-
-            // start game
+           // start game
             NewGame();
-
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -83,7 +69,6 @@ namespace Hunting
                 {
                     recordHolder = new RecordHolder(player.Name, player.Score); // устанавл нов рекорд
                 }
-
                 // считываем потоком рекорд
                 //
                 streamReader = new StreamReader(@"Record.txt");
@@ -108,13 +93,11 @@ namespace Hunting
                 }
             }
 
-
             // СОЗД ПТИЦ
             if (birds.Count <= 12)
                 {
                     birds.Add(RandomBird());
                 }
-
 
                 for (int i = birds.Count - 1; i != 0; i--)
                 {
@@ -123,8 +106,6 @@ namespace Hunting
                         birds[i].Move();
                         Controls.Add(birds[i].PictureBox);
 
-
-
                         if (birds[i].Life == false)
                         {
                             Controls.Remove(birds[i].PictureBox);
@@ -132,7 +113,6 @@ namespace Hunting
                         }
                     }
                 }
-
 
                 //  SceneContainer options
                 if (SceneContainer.Height != this.Size.Height || SceneContainer.Width != this.Size.Width)
@@ -147,11 +127,7 @@ namespace Hunting
                 {
                     b.Death();
                 }
-
-
-            }
-                
-            
+            }                           
         }
 
         // Create new bird
@@ -205,10 +181,7 @@ namespace Hunting
             // next new id for PictureBox bird
             idBird++;
 
-
-            birdsType[i].PictureBox.Click += new EventHandler((x,t)=> { player.Score += birdsType[i].Point; });
-
-               
+            birdsType[i].PictureBox.Click += new EventHandler((x,t)=> { player.Score += birdsType[i].Point; });            
 
             return birdsType[i];
         }
@@ -243,13 +216,10 @@ namespace Hunting
             formPlayer.Owner = this;
             formPlayer.ShowDialog();
 
-            //StreamReader streamReader = new StreamReader(@"NamePlayer.txt"); // потоком читаем
-            //string s = streamReader.ReadLine();
-
             player = new Player(); // создаем с таким именем
 
             label5.Text = player.Name; // выводим в label
-            //streamReader.Close(); // закр поток
+
             NewGame(); // вызываем метод "Новая игра"
         }
 

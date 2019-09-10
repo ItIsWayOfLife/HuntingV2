@@ -20,7 +20,7 @@ namespace Hunting
         }
 
         // motion variable
-        public static int MotionVariable { get; set; }
+        public int MotionVariable { get; set; }
 
         // kill points
         public int Point { get; protected set; }

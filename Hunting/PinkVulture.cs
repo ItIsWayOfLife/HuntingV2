@@ -6,7 +6,7 @@ namespace Hunting
 {
     class PinkVulture : Bird
     {
-        int iTrajectory;
+        int dinamic;
 
         public PinkVulture(int id) : base(id)
         {
@@ -15,7 +15,7 @@ namespace Hunting
             Random random = new Random();
             Speed = random.Next(9, 15);
 
-            iTrajectory = 1;
+            dinamic = random.Next(0,3);
 
             int[] widthStartPoints = new int[] { SceneContainer.Width + 100, SceneContainer.Width + 200, SceneContainer.Width + 400 };
 
@@ -26,9 +26,72 @@ namespace Hunting
 
         public override void Move()
         {
-            X -= Speed;
+            MotionVariable++;
 
-
+            if (dinamic == 0)
+            {
+                X -= Speed;
+            }
+            else if (dinamic == 1)
+            {
+                if (MotionVariable >= 0 && MotionVariable <= 30)
+                {
+                    X -= Speed;
+                }
+                else if (MotionVariable > 30 && MotionVariable <= 60)
+                {
+                    X -= Speed;
+                    Y -= 2;
+                }
+                else if (MotionVariable > 60 && MotionVariable <= 85)
+                {
+                    X -= Speed;
+                }
+                else if (MotionVariable > 85 && MotionVariable <= 110)
+                {
+                    X -= Speed + 2;
+                    Y++;
+                }
+                else if (MotionVariable > 110 && MotionVariable <= 130)
+                {
+                    X -= Speed;
+                    Y-=2;
+                }
+                else
+                {
+                    X -= Speed;
+                }
+            }
+            else if (dinamic == 2)
+            {
+                if (MotionVariable >= 0 && MotionVariable <= 30)
+                {
+                    X -= Speed-1;
+                }
+                else if (MotionVariable > 20 && MotionVariable <= 50)
+                {
+                    X -= Speed;
+                    Y += 3;
+                }
+                else if (MotionVariable > 50 && MotionVariable <= 85)
+                {
+                    X -= Speed-1;
+                }
+                else if (MotionVariable > 85 && MotionVariable <= 120)
+                {
+                    X -= Speed + 2;
+                    Y++;
+                }
+                else if (MotionVariable > 120 && MotionVariable <= 135)
+                {
+                    X -= Speed-4;
+                    Y -= 3;
+                }
+                else
+                {
+                    X -= Speed;
+                }
+            }
         }
     }
 }
