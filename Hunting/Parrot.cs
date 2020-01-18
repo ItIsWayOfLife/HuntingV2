@@ -18,14 +18,12 @@ namespace Hunting
 
             dinamic = random.Next(0,2);
 
-
             int[] widthStartPoints = new int[] { SceneContainer.Width + 150, SceneContainer.Width + 250, SceneContainer.Width + 400 };
                
             PictureBox.Location = new Point(widthStartPoints[random.Next(0,widthStartPoints.Length)], random.Next(200, 600));
             PictureBox.Image = Image.FromFile(@"1.gif");
             PictureBox.Size = new System.Drawing.Size(156, 83);
         }
-
 
         public override void Move()
         {
@@ -41,7 +39,6 @@ namespace Hunting
                 Y--;
             }
         }
-
         protected override void Cry()
         {
             SoundPlayer sw2 = new SoundPlayer(@"parrot.wav");

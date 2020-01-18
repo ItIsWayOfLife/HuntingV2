@@ -19,3 +19,13 @@ D:\DELETE\Hunting\Hunting\obj\Debug\Hunting.csproj.CoreCompileInputs.cache
 D:\DELETE\Hunting\Hunting\obj\Debug\Hunting.exe
 D:\DELETE\Hunting\Hunting\obj\Debug\Hunting.pdb
 D:\DELETE\Hunting\Hunting\obj\Debug\Hunting.PlayerForm.resources
+C:\Users\anton\Desktop\рефак\HuntingV2\Hunting\bin\Debug\Hunting.exe.config
+C:\Users\anton\Desktop\рефак\HuntingV2\Hunting\bin\Debug\Hunting.exe
+C:\Users\anton\Desktop\рефак\HuntingV2\Hunting\bin\Debug\Hunting.pdb
+C:\Users\anton\Desktop\рефак\HuntingV2\Hunting\obj\Debug\Hunting.csprojAssemblyReference.cache
+C:\Users\anton\Desktop\рефак\HuntingV2\Hunting\obj\Debug\Hunting.PlayerForm.resources
+C:\Users\anton\Desktop\рефак\HuntingV2\Hunting\obj\Debug\Hunting.Properties.Resources.resources
+C:\Users\anton\Desktop\рефак\HuntingV2\Hunting\obj\Debug\Hunting.Scene.resources
+C:\Users\anton\Desktop\рефак\HuntingV2\Hunting\obj\Debug\Hunting.csproj.GenerateResource.cache
+C:\Users\anton\Desktop\рефак\HuntingV2\Hunting\obj\Debug\Hunting.exe
+C:\Users\anton\Desktop\рефак\HuntingV2\Hunting\obj\Debug\Hunting.pdb

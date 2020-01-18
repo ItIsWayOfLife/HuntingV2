@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Scene));
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.gameToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -80,28 +81,28 @@
             // newGameToolStripMenuItem
             // 
             this.newGameToolStripMenuItem.Name = "newGameToolStripMenuItem";
-            this.newGameToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.newGameToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
             this.newGameToolStripMenuItem.Text = "New game";
             this.newGameToolStripMenuItem.Click += new System.EventHandler(this.NewGameToolStripMenuItem_Click);
             // 
             // newGamerToolStripMenuItem
             // 
             this.newGamerToolStripMenuItem.Name = "newGamerToolStripMenuItem";
-            this.newGamerToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.newGamerToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
             this.newGamerToolStripMenuItem.Text = "New player";
             this.newGamerToolStripMenuItem.Click += new System.EventHandler(this.NewGamerToolStripMenuItem_Click);
             // 
             // viewRecordToolStripMenuItem
             // 
             this.viewRecordToolStripMenuItem.Name = "viewRecordToolStripMenuItem";
-            this.viewRecordToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.viewRecordToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
             this.viewRecordToolStripMenuItem.Text = "View record";
             this.viewRecordToolStripMenuItem.Click += new System.EventHandler(this.ViewRecordToolStripMenuItem_Click);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.ExitToolStripMenuItem_Click);
             // 
@@ -196,6 +197,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.menuStrip1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Scene";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

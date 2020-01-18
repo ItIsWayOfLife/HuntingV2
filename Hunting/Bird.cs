@@ -53,7 +53,6 @@ namespace Hunting
             return null;
         }
 
-
         // move bird
         public abstract void Move();
 
